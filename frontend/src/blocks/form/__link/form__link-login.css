@@ -1,0 +1,9 @@
+.form__link-login{
+    color: white;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+.form__link-login:hover{
+    opacity: .8;
+}

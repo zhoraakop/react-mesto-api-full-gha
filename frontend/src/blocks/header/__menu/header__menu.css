@@ -1,0 +1,22 @@
+.header__menu{
+    width: 320px;
+    margin: 0 auto 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    border-bottom: 1px solid rgba(84, 84, 84, .7);
+}
+
+.header__menu .email{
+    margin-top: 40px;
+    font-weight: 500;
+    line-height: 22px;
+}
+
+.header__menu .header__link{
+    margin: 0 0 40px 0;
+    padding: 0;
+    width: 100%;
+    
+}

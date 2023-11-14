@@ -1,0 +1,35 @@
+.popup__content{
+    background-color: white;
+    width: 430px;
+    height: 330px;
+    
+    border-radius: 10px;
+    position: relative;
+
+}
+
+#popup-trash .popup__content{
+    height: 181px;
+}
+
+#popup-avatar .popup__content{
+    height: 272px;
+}
+
+@media screen and (max-width: 767px) {
+    .popup__content{
+        width: 282px;
+        height: 322px;
+    }
+    #popup-trash .popup__content{
+        height: 150px;
+    }
+    #popup-avatar .popup__content{
+        height: 242px;
+    }
+
+    #popup-infoTooltip .popup__content{
+        width: 280px;
+        height: 308px;
+    }
+}

@@ -1,0 +1,12 @@
+.element{
+    background-color: white;
+    border-radius: 10px;
+    max-width: 284px;
+    max-height: 361px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+

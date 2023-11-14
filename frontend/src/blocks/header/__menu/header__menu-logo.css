@@ -1,0 +1,11 @@
+.header__menu-logo{
+    display: none;
+}
+
+@media screen and (max-width: 767px) {
+    .header__menu-logo{
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+    }
+  }

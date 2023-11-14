@@ -1,0 +1,22 @@
+.popup__form{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, min-content);
+    gap: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-between;
+    width: 358px;
+    margin: 0 auto;
+}
+
+#popup-avatar .popup__form{
+    grid-template-rows: repeat(2, min-content);
+}
+
+@media screen and (max-width: 767px) {
+    .popup__form{
+        width: 238px;
+    }
+    
+}

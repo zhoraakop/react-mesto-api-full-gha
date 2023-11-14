@@ -1,0 +1,16 @@
+.email {
+  color: white;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+@media screen and (max-width: 767px) {
+  .header .email{
+      display: none;
+      
+  }
+}
+
+
