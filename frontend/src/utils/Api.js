@@ -15,21 +15,21 @@ class Api {
   }
 
   getUserData() {
-    return fetch(`${this._url}/api/users/me`, {
+    return fetch(`${this._url}/users/me`, {
       credentials: this._credentials,
       headers: this._headers,
     }).then((res) => this._check(res));
   }
 
   getInitialCards() {
-    return fetch(`${this._url}/api/cards`, {
+    return fetch(`${this._url}/cards`, {
       credentials: this._credentials,
       headers: this._headers,
     }).then((res) => this._check(res));
   }
 
   editProfile({ name, about }) {
-    return fetch(`${this._url}/api/users/me`, {
+    return fetch(`${this._url}/users/me`, {
       method: "PATCH",
       credentials: this._credentials,
       headers: this._headers,
@@ -41,7 +41,7 @@ class Api {
   }
 
   postCards({ name, link }) {
-    return fetch(`${this._url}/api/cards`, {
+    return fetch(`${this._url}/cards`, {
       method: "POST",
       credentials: this._credentials,
       headers: this._headers,
@@ -53,7 +53,7 @@ class Api {
   }
 
   editAvatar({ avatar }) {
-    return fetch(`${this._url}/api/users/me/avatar`, {
+    return fetch(`${this._url}/users/me/avatar`, {
       method: "PATCH",
       credentials: this._credentials,
       headers: this._headers,
@@ -64,7 +64,7 @@ class Api {
   }
 
   deleteCard(cardId) {
-    return fetch(`${this._url}/api/cards/${cardId}`, {
+    return fetch(`${this._url}/cards/${cardId}`, {
       method: "DELETE",
       credentials: this._credentials,
       headers: this._headers,
@@ -72,7 +72,7 @@ class Api {
   }
 
   likeAdd(cardId) {
-    return fetch(`${this._url}/api/cards/${cardId}/likes`, {
+    return fetch(`${this._url}/cards/${cardId}/likes`, {
       method: "PUT",
       credentials: this._credentials,
       headers: this._headers,
@@ -80,7 +80,7 @@ class Api {
   }
 
   likeRemove(cardId) {
-    return fetch(`${this._url}/api/cards/${cardId}/likes`, {
+    return fetch(`${this._url}/cards/${cardId}/likes`, {
       method: "DELETE",
       credentials: this._credentials,
       headers: this._headers,
@@ -89,10 +89,9 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: "http://zhoraakop.nomoredomainsmonster.ru",
+  baseUrl: "http://zhoraakop.nomoredomainsmonster.ru/api",
   headers: {
     "Content-Type": "application/json",
-    authorization: `Bearer ${localStorage.getItem('token')}`,
   },
   credentials: 'include',
 });

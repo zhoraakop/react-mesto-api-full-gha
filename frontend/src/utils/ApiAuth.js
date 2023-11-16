@@ -1,4 +1,4 @@
-export const URL = "http://zhoraakop.nomoredomainsmonster.ru";
+export const URL = "http://zhoraakop.nomoredomainsmonster.ru/api";
 
 const check = res => {
     if (!res.ok) {
@@ -8,7 +8,7 @@ const check = res => {
 }
 
 export const authorization = ({ email, password }) => {
-  return fetch(`${URL}/api/signin`, {
+  return fetch(`${URL}/signin`, {
     method: "POST",
     credentials: 'include',
     headers: {
@@ -26,7 +26,7 @@ export const authorization = ({ email, password }) => {
 }; 
 
 export const register = ({ email, password }) => {
-  return fetch(`${URL}/api/signup`, {
+  return fetch(`${URL}/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -36,7 +36,7 @@ export const register = ({ email, password }) => {
 };
 
 export const getUserToken = (token) => {
-  return fetch(`${URL}/api/users/me`, {
+  return fetch(`${URL}/users/me`, {
     method: "GET",
     credentials: 'include',
     headers: {
