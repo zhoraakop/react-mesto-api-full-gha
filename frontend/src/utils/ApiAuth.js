@@ -1,4 +1,4 @@
-export const URL = "https://auth.nomoreparties.co";
+export const URL = "http://zhoraakop.nomoredomainsmonster.ru";
 
 const check = res => {
     if (!res.ok) {
@@ -8,19 +8,25 @@ const check = res => {
 }
 
 export const authorization = ({ email, password }) => {
-  return fetch(`${URL}/signin`, {
+  return fetch(`${URL}/api/signin`, {
     method: "POST",
+    credentials: 'include',
     headers: {
       'Accept': 'application/json',
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
   })
-    .then((res) => check(res))
-};
+  .then((data) => {
+    if (data.token) {
+      localStorage.setItem("token", data.token);
+      return data;
+    }
+  });
+}; 
 
 export const register = ({ email, password }) => {
-  return fetch(`${URL}/signup`, {
+  return fetch(`${URL}/api/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -30,8 +36,9 @@ export const register = ({ email, password }) => {
 };
 
 export const getUserToken = (token) => {
-  return fetch(`${URL}/users/me`, {
+  return fetch(`${URL}/api/users/me`, {
     method: "GET",
+    credentials: 'include',
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,

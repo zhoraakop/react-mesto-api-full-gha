@@ -3,7 +3,8 @@
 class Api {
   constructor(options) {
     this._url = options.baseUrl;
-    this._token = options.token;
+    this._headers = options.headers;
+    this._credentials = options.credentials;
   }
 
   _check(res) {
@@ -14,28 +15,24 @@ class Api {
   }
 
   getUserData() {
-    return fetch(`${this._url}/users/me`, {
-      headers: {
-        authorization: this._token,
-      },
+    return fetch(`${this._url}/api/users/me`, {
+      credentials: this._credentials,
+      headers: this._headers,
     }).then((res) => this._check(res));
   }
 
   getInitialCards() {
-    return fetch(`${this._url}/cards`, {
-      headers: {
-        authorization: this._token,
-      },
+    return fetch(`${this._url}/api/cards`, {
+      credentials: this._credentials,
+      headers: this._headers,
     }).then((res) => this._check(res));
   }
 
   editProfile({ name, about }) {
-    return fetch(`${this._url}/users/me`, {
+    return fetch(`${this._url}/api/users/me`, {
       method: "PATCH",
-      headers: {
-        authorization: this._token,
-        "Content-Type": "application/json",
-      },
+      credentials: this._credentials,
+      headers: this._headers,
       body: JSON.stringify({
         name: name,
         about: about,
@@ -44,12 +41,10 @@ class Api {
   }
 
   postCards({ name, link }) {
-    return fetch(`${this._url}/cards`, {
+    return fetch(`${this._url}/api/cards`, {
       method: "POST",
-      headers: {
-        authorization: this._token,
-        "Content-Type": "application/json",
-      },
+      credentials: this._credentials,
+      headers: this._headers,
       body: JSON.stringify({
         name: name,
         link: link,
@@ -58,12 +53,10 @@ class Api {
   }
 
   editAvatar({ avatar }) {
-    return fetch(`${this._url}/users/me/avatar`, {
+    return fetch(`${this._url}/api/users/me/avatar`, {
       method: "PATCH",
-      headers: {
-        authorization: this._token,
-        "Content-Type": "application/json",
-      },
+      credentials: this._credentials,
+      headers: this._headers,
       body: JSON.stringify({
         avatar: avatar,
       }),
@@ -71,39 +64,37 @@ class Api {
   }
 
   deleteCard(cardId) {
-    return fetch(`${this._url}/cards/${cardId}`, {
+    return fetch(`${this._url}/api/cards/${cardId}`, {
       method: "DELETE",
-      headers: {
-        authorization: this._token,
-        "Content-Type": "application/json",
-      },
+      credentials: this._credentials,
+      headers: this._headers,
     }).then((res) => this._check(res));
   }
 
   likeAdd(cardId) {
-    return fetch(`${this._url}/cards/${cardId}/likes`, {
+    return fetch(`${this._url}/api/cards/${cardId}/likes`, {
       method: "PUT",
-      headers: {
-        authorization: this._token,
-        "Content-Type": "application/json",
-      },
+      credentials: this._credentials,
+      headers: this._headers,
     }).then((res) => this._check(res));
   }
 
   likeRemove(cardId) {
-    return fetch(`${this._url}/cards/${cardId}/likes`, {
+    return fetch(`${this._url}/api/cards/${cardId}/likes`, {
       method: "DELETE",
-      headers: {
-        authorization: this._token,
-        "Content-Type": "application/json",
-      },
+      credentials: this._credentials,
+      headers: this._headers,
     }).then((res) => this._check(res));
   }
 }
 
 const api = new Api({
-  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-72",
-  token: "a81cafc2-2241-4342-a96b-9e7db132c0d1",
+  baseUrl: "http://zhoraakop.nomoredomainsmonster.ru",
+  headers: {
+    "Content-Type": "application/json",
+    authorization: `Bearer ${localStorage.getItem('token')}`,
+  },
+  credentials: 'include',
 });
 
 export default api;
