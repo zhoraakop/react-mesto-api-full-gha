@@ -54,5 +54,8 @@ export const getUserToken = (token) => {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-  }).then((res) => check(res));
+  }).then((res) => {
+    console.log('ccc', res);
+    check(res)
+  });
 };

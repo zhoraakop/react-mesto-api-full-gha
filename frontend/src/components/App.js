@@ -189,7 +189,7 @@ function App() {
         setIsRegister(true);
       })
       .catch((err) => {
-        console.log(err);
+        console.error(err);
       });
   }
 
