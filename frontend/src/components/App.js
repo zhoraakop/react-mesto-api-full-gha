@@ -53,6 +53,7 @@ function App() {
 
   const token = getToken();
   useEffect(() => {
+    console.log(token);
     ApiAuth.getUserToken(token)
       .then((res) => {
         if (res.data.email) {
@@ -184,6 +185,7 @@ function App() {
   function cbLogin(dataLogin) {
     ApiAuth.authorization(dataLogin)
       .then((dataLogin) => {
+        setEmail(dataLogin.email)
         setToken(dataLogin.token);
         setLoggedIn(dataLogin);
         setIsRegister(true);
