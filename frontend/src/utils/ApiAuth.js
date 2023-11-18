@@ -20,17 +20,6 @@ export const authorization = ({ email, password }) => {
   .then(check);
 }; 
 
-export function getToken() {
-  return fetch(`${URL}/users/me`, {
-    method: "GET",
-    credentials: 'include',
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-  }).then(check);
-}
-
 export const register = ({ email, password }) => {
   return fetch(`${URL}/signup`, {
     method: "POST",

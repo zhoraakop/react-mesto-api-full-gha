@@ -56,6 +56,7 @@ function App() {
     console.log(token);
     ApiAuth.getUserToken(token)
       .then((res) => {
+        console.log('res',res);
         if (res.data.email) {
           setEmail(res.data.email);
           setLoggedIn({ ...res });
