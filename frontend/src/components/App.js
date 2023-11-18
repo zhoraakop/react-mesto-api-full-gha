@@ -49,7 +49,7 @@ function App() {
       .catch((err) => {
         console.error(err);
       });
-  }, []);
+  }, [isRegister]);
 
   const token = getToken();
   useEffect(() => {
