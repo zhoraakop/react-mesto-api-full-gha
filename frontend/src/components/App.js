@@ -125,8 +125,10 @@ function App() {
       api
         .likeAdd(card._id)
         .then((newCard) => {
-          setCards((state) =>
-            state.map((c) => (c._id === card._id ? newCard : c))
+          setCards((state) => {
+            console.log('state', state);
+            state.map((c) => (c._id === card._id ? newCard : c));
+          }
           );
         })
         .catch((err) => {
