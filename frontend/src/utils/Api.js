@@ -89,7 +89,7 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: "http://zhoraakop.nomoredomainsmonster.ru/api",
+  baseUrl: "https://zhoraakop.nomoredomainsmonster.ru/api",
   headers: {
     "Content-Type": "application/json",
   },

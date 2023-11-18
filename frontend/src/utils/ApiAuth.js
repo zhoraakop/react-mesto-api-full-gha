@@ -1,4 +1,4 @@
-export const URL = "http://zhoraakop.nomoredomainsmonster.ru/api";
+export const URL = "https://zhoraakop.nomoredomainsmonster.ru/api";
 
 const check = res => {
     if (!res.ok) {
