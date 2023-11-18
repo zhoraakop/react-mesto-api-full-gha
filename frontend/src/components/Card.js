@@ -11,9 +11,9 @@ const Card = ({ card, onCardClick, currentUser, onCardLike, onCardDelete }) => {
     onCardDelete(card);
   }
   console.log("card", card);
-  const isOwn = card._id === currentUser._id;
+  const isOwn = card.owner === currentUser._id;
   console.log("isown", isOwn);
-  console.log("card.owner._id", card._id);
+  console.log("card.owner._id", card.owner);
   console.log("currentUser._id", currentUser._id);
   
   const isLiked = card.likes.some((i) => i._id === currentUser._id);
