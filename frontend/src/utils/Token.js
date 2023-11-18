@@ -1,6 +1,6 @@
 
 
-const TOKEN_KEY = 'jwt';
+const {TOKEN_KEY = 'jwt'} = process.env;
 
 export const setToken = (token) => {
     localStorage.setItem(TOKEN_KEY, token)
