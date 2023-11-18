@@ -184,10 +184,9 @@ function App() {
   }
 
   function cbLogin(dataLogin) {
-    console.log(dataLogin);
     ApiAuth.authorization(dataLogin)
       .then((dataLogin) => {
-        console.log(dataLogin);
+        console.log('вход', dataLogin);
         setToken(dataLogin.token);
         setLoggedIn(dataLogin);
         setIsRegister(true);
@@ -200,6 +199,7 @@ function App() {
   function cbRegister(dataRegister) {
     ApiAuth.register(dataRegister)
       .then((dataRegister) => {
+        console.log('регистрация', dataRegister);
         setLoggedIn(dataRegister);
         setEmail(dataRegister.data.email);
       })
@@ -210,6 +210,7 @@ function App() {
 
   function cbLogout() {
     removeToken();
+    setEmail("");
     setLoggedIn(null);
   }
 
