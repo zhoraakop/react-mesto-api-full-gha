@@ -8,6 +8,12 @@ const cards = require('./cards');
 const { validationCreateUser, validationLog } = require('../middlewares/validation');
 const NotFoundError = require('../errors/NotFoundError');
 
+router.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 router.post('/api/signup', validationCreateUser, createUser);
 router.post('/api/signin', validationLog, login);
 

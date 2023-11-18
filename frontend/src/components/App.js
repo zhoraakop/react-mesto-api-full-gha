@@ -53,14 +53,11 @@ function App() {
 
   const token = getToken();
   useEffect(() => {
-    console.log(token);
     ApiAuth.getUserToken(token)
       .then((res) => {
-        console.log('res',res);
         if (token) {
           setEmail(res.email);
           setLoggedIn({ ...res });
-          console.log("logged", res);
           setIsRegister(true);
         }
       })
@@ -186,7 +183,6 @@ function App() {
   function cbLogin(dataLogin) {
     ApiAuth.authorization(dataLogin)
       .then((dataLogin) => {
-        console.log('вход', dataLogin);
         setToken(dataLogin.token);
         setLoggedIn(dataLogin);
         setIsRegister(true);
@@ -199,9 +195,8 @@ function App() {
   function cbRegister(dataRegister) {
     ApiAuth.register(dataRegister)
       .then((dataRegister) => {
-        console.log('регистрация', dataRegister);
         setLoggedIn(dataRegister);
-        setEmail(dataRegister.data.email);
+        setEmail(dataRegister.email);
       })
       .catch((err) => {
         console.error(err);
