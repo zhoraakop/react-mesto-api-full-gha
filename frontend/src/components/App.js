@@ -183,6 +183,7 @@ function App() {
   }
 
   function cbLogin(dataLogin) {
+    console.log(dataLogin);
     ApiAuth.authorization(dataLogin)
       .then((dataLogin) => {
         console.log(dataLogin);
