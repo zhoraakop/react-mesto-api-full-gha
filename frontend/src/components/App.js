@@ -119,16 +119,14 @@ function App() {
   };
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser._id);
     console.log('id-card', card);
     if (!isLiked) {
       api
         .likeAdd(card._id)
         .then((newCard) => {
-          setCards((state) => {
-            console.log('state', state);
-            state.map((c) => (c._id === card._id ? newCard : c));
-          }
+          setCards((state) => 
+            state.map((c) => (c._id === card._id ? newCard : c))
           );
         })
         .catch((err) => {
