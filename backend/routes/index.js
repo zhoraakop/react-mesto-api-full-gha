@@ -4,7 +4,7 @@ const router = require('express').Router();
 
 const auth = require('../middlewares/auth');
 
-const { API } = process.env || '';
+const API = process.env || '';
 
 const { login, createUser } = require('../controllers/users');
 const users = require('./users');
