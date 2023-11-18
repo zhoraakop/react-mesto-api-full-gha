@@ -187,7 +187,6 @@ function App() {
     ApiAuth.authorization(dataLogin)
       .then((dataLogin) => {
         console.log(dataLogin);
-        setEmail(dataLogin.email)
         setToken(dataLogin.token);
         setLoggedIn(dataLogin);
         setIsRegister(true);

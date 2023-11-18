@@ -4,7 +4,6 @@ const check = res => {
     if (!res.ok) {
         return Promise.reject(`Ошибка:${res.status}`);
       }
-      console.log(res.json())
       return res.json();
 }
 
@@ -50,8 +49,5 @@ export const getUserToken = (token) => {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-  }).then((res) => {
-    console.log('ccc', res);
-    check(res)
-  });
+  }).then(check);
 };
