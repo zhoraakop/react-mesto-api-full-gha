@@ -10,7 +10,7 @@ const Card = ({ card, onCardClick, currentUser, onCardLike, onCardDelete }) => {
   function handleDeleteClick() {
     onCardDelete(card);
   }
-
+  console.log("card", card);
   const isOwn = card.owner._id === currentUser._id;
   console.log("isown", isOwn);
   console.log("card.owner._id", card.owner._id);
