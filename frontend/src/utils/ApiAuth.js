@@ -4,6 +4,7 @@ const check = res => {
     if (!res.ok) {
         return Promise.reject(`Ошибка:${res.status}`);
       }
+      console.log(res.json())
       return res.json();
 }
 
@@ -17,13 +18,7 @@ export const authorization = ({ email, password }) => {
     },
     body: JSON.stringify({ email, password }),
   })
-  .then((data) => {
-    console.log(data);
-    if (data.token) {
-      localStorage.setItem("token", data.token);
-      return data;
-    }
-  });
+  .then(check);
 }; 
 
 export function getToken() {
