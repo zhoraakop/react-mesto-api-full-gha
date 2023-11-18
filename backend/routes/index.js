@@ -13,7 +13,7 @@ const NotFoundError = require('../errors/NotFoundError');
 router.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
-  }, 0);
+  }, 1);
 });
 
 router.post((process.env.API ? (`/${process.env.API}/signup`) : ('/signup')), validationCreateUser, createUser);
