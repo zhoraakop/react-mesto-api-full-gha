@@ -18,8 +18,8 @@ export const authorization = ({ email, password }) => {
     body: JSON.stringify({ email, password }),
   })
   .then((data) => {
+    console.log(data);
     if (data.token) {
-      console.log(data);
       localStorage.setItem("token", data.token);
       return data;
     }
