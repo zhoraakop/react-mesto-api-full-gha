@@ -16,12 +16,12 @@ router.get('/crash-test', () => {
   }, 0);
 });
 
-router.post((process.env.API ? (`${process.env.API}/signup`) : ('/signup')), validationCreateUser, createUser);
-router.post((process.env.API ? (`${process.env.API}/signin`) : ('/signin')), validationLog, login);
+router.post((process.env.API ? (`/${process.env.API}/signup`) : ('/signup')), validationCreateUser, createUser);
+router.post((process.env.API ? (`/${process.env.API}/signin`) : ('/signin')), validationLog, login);
 
 router.use(auth);
-router.use((process.env.API ? (`${process.env.API}/users`) : ('/users')), users);
-router.use((process.env.API ? (`${process.env.API}/cards`) : ('/cards')), cards);
+router.use((process.env.API ? (`/${process.env.API}/users`) : ('/users')), users);
+router.use((process.env.API ? (`/${process.env.API}/cards`) : ('/cards')), cards);
 router.use('*', (req, res, next) => {
   next(new NotFoundError('Страница не найдена'));
 });
