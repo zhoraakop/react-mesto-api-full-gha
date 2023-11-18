@@ -10,12 +10,6 @@ const cards = require('./cards');
 const { validationCreateUser, validationLog } = require('../middlewares/validation');
 const NotFoundError = require('../errors/NotFoundError');
 
-router.get('/crash-test', () => {
-  setTimeout(() => {
-    throw new Error('Сервер сейчас упадёт');
-  }, 0);
-});
-
 router.post((process.env.API ? (`/${process.env.API}/signup`) : ('/signup')), validationCreateUser, createUser);
 router.post((process.env.API ? (`/${process.env.API}/signin`) : ('/signin')), validationLog, login);
 
