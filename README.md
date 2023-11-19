@@ -11,9 +11,9 @@
 
 IP 84.201.142.103
 
-Frontend https://zhoraakop.nomoredomainsmonster.ru
+Frontend https://zhoraakop.nomoredomainsmonster.ru/api
 
-Backend https://zhoraakop.nomoredomainsmonster.ru/api
+Backend https://zhoraakop.nomoredomainsmonster.ru
 
 // 0|app    | Error: Сервер сейчас упадёт
 // 0|app    |     at Timeout._onTimeout (/home/zhoraakop/react-mesto-api-f
