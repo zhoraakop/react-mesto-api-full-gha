@@ -18,7 +18,7 @@ const NotFoundError = require('../errors/NotFoundError');
 // PM2      | App [app:0] starting in -fork mode-
 // PM2      | App [app:0] online
 // 0|app    | CONNECTED TO MONGODB
-router.get((process.env.API ? (`/${process.env.API}/crash-test`) : ('/crash-test')), () => {
+router.get((process.env.API ? (`/${process.env.API}/crash-test`) : ('/api/crash-test')), () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
